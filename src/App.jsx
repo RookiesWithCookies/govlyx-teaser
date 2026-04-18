@@ -108,6 +108,16 @@ function App() {
     };
   }, []);
 
+  // auto-dismiss popup after 5 seconds
+  useEffect(() => {
+    if (popup.show) {
+      const timer = setTimeout(() => {
+        setPopup((prev) => ({ ...prev, show: false }));
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [popup.show]);
+
   //submit handler
   const handleSubmit = async (event) => {
     event.preventDefault();
