@@ -6,11 +6,13 @@ const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxSUkS36Dc0FQUIyPyQah9AStFyHhKM6wUdfPKxySoZPFgO6TEfyu65VN73yDE84WyN/exec";
 
 const createLaunchDate = () => {
-  const date = new Date();
-  date.setDate(date.getDate() + 45);
+  const date = new Date("2026-04-18");
+  date.setDate(date.getDate() + 44);
   date.setHours(0, 0, 0, 0);
   return date;
 };
+
+console.log(createLaunchDate());
 
 const formatTime = (value) => String(value).padStart(2, "0");
 
@@ -58,6 +60,7 @@ function App() {
   const topbarRef = useRef(null);
 
   useEffect(() => {
+    setTimeLeft(getTimeLeft(launchDate));
     const intervalId = setInterval(() => {
       setTimeLeft(getTimeLeft(launchDate));
     }, 1000);
