@@ -7,7 +7,7 @@ const APPS_SCRIPT_URL =
 
 const createLaunchDate = () => {
   const date = new Date("2026-04-18");
-  date.setDate(date.getDate() + 44);
+  date.setDate(date.getDate() + 50);
   date.setHours(0, 0, 0, 0);
   return date;
 };
